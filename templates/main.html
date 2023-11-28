@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./../static/style.css">
     <title>Es la pagina inicial de un app con vercel</title>
 </head>
+
 <body>
-    <h2>Resultado del cálculo:</h2>
-    <p>El resultado de la prediccion es: {{ resultado }}</p>
+    <header>
+        <h1>Proyecto Final de Análisis de Datos</h1>
+    </header>
+    <div class="container">
+        <h2>Ingrese un mensaje:</h2>
+        <form action="/" method="post">
+            <label for="mensaje">Mensaje:</label>
+            <input type="text" id="mensaje" name="mensaje" required>
+            <input type="submit" value="Enviar">
+        </form>
+
+        <div class="card">
+            {% if resultado %}
+            <div class="result-section">
+                <h2>Resultado del cálculo:</h2>
+                <p class="resultado">El resultado de la predicción es: {{ resultado }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
 </body>
+
 </html>

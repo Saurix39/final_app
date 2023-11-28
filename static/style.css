@@ -1,0 +1,113 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    margin: 20px;
+}
+
+.container {
+    max-width: 90%; /* Ajusta el ancho máximo según sea necesario */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    color: #007bff;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    color: #495057;
+}
+
+input {
+    width: 100%;
+    padding: 70px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    padding: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+p.resultado {
+    font-size: 1.2em;
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Estilo para el pie de página */
+footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #6c757d;
+}
+
+/* Estilos para responsividad */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.result-section {
+    background-color: #f8d7da;
+    padding: 15px;
+    border-bottom: 1px solid #f5c6cb;
+}
+
+.result-section h2 {
+    color: #721c24;
+}
+
+.result-section .resultado {
+    font-size: 1.2em;
+    color: #721c24;
+    font-weight: bold;
+}
+
+/* Agrega estilos al encabezado */
+header {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+/* Ajusta estilos adicionales según sea necesario */
