@@ -6,30 +6,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./../static/style.css">
-    <title>Es la pagina inicial de un app con vercel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Mental Health</title>
 </head>
 
 <body>
     <header>
-        <h1>Proyecto Final de Análisis de Datos</h1>
+        <h1>Proyecto Final de Análisis de datos</h1>
     </header>
-    <div class="container">
-        <h2>Ingrese un mensaje:</h2>
-        <form action="/" method="post">
-            <label for="mensaje">Mensaje:</label>
-            <input type="text" id="mensaje" name="mensaje" required>
-            <input type="submit" value="Enviar">
-        </form>
 
-        <div class="card">
-            {% if resultado %}
-            <div class="result-section">
-                <h2>Resultado del cálculo:</h2>
-                <p class="resultado">El resultado de la predicción es: {{ resultado }}</p>
+    <div class="container">
+        <div class="profile-card">
+            <div class="profile-avatar">
+                <i class="fas fa-user fa-5x"></i>
             </div>
-            {% endif %}
+            <div class="profile-header">
+                <div class="profile-info">
+                    <div class="profile-username"></div>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <label for="seguidores">Seguidores:</label>
+                            <input type="number" id="seguidores" name="seguidores" class="input-stat" required>
+                        </div>
+                        <div class="stat">
+                            <label for="tweets">Tweets:</label>
+                            <input type="number" id="tweets" name="tweets" class="input-stat" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tweet">
+                <textarea class="tweet-content" placeholder="Escribe el contenido del tweet aquí"></textarea>
+
+                <div class="tweet-meta">
+                    <div class="meta-left">
+                        <div class="icon-container">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <input type="number" id="meGusta" name="meGusta" class="input-meta" required>
+
+                        <div class="icon-container">
+                            <i class="fas fa-retweet"></i>
+                        </div>
+                        <input type="number" id="retweets" name="retweets" class="input-meta" required>
+                    </div>
+
+                    <div class="meta-right">
+                        <input type="text" id="semana" name="semana" class="input-meta-small" placeholder="Semana"
+                            required>
+                        <input type="text" id="ano" name="ano" class="input-meta-small" placeholder="Año" required>
+                        <input type="text" id="mes" name="mes" class="input-meta-small" placeholder="Mes" required>
+                        <input type="text" id="dia" name="dia" class="input-meta-small" placeholder="Día" required>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="boton">Enviar</button>
         </div>
     </div>
 </body>
+
+
+</html>
 
 </html>
