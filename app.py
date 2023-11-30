@@ -5,9 +5,6 @@ from datetime import datetime
 import nltk
 from nltk.corpus import stopwords
 from textblob import Word
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
 from flask import Flask, render_template, request
 nltk.download("stopwords")
 nltk.download("wordnet")
@@ -27,24 +24,13 @@ def index():
         favourites = int(request.form.get('favourites', 0))
         statuses = int(request.form.get('statuses', 0))
         retweets = int(request.form.get('retweets', 0))
-        date = request.form.get('date', "1-2020/1/15")
+        week_day = int(request.form.get('week', 0))
+        year = int(request.form.get('year', 0))
+        month = int(request.form.get('month', 0))
+        day = int(request.form.get('day', 0))
 
         print("-"*45)
         print(post_text)
-
-        # Extrae el número correspondiente al día de la semana
-        week_day = int(date.split('-')[0])
-
-        # Extrae el resto de la cadena para obtener el año, mes y día
-        resto_cadena = date.split('-')[1]
-
-        # Convierte el resto de la cadena en un objeto datetime
-        fecha_obj = datetime.strptime(resto_cadena, "%Y/%m/%d")
-
-        # Extrae la información como enteros
-        year = int(fecha_obj.year)
-        month = int(fecha_obj.month)
-        day = int(fecha_obj.day)
 
         post_text = " ".join(x.lower() for x in post_text.split())
 
@@ -71,27 +57,19 @@ def index():
             'year': [year]
         })
 
-        transformer = ColumnTransformer(
-            transformers=[
-                ('post_text', CountVectorizer(), 'post_text')
-            ],
-            remainder='passthrough'  # Mantiene las columnas no especificadas sin cambios
-        )
+        print("*"*30)
 
-        # Crea un pipeline con el transformador y, opcionalmente, otros pasos del preprocesamiento
-        pipeline = Pipeline([
-            ('vectorizer', transformer)
-        ])
-
-        # Aplica el pipeline al conjunto completo de datos
-        X_transformed = pipeline.fit_transform(new_data[['post_text', 'friends', 'favourites', 'statuses', 'retweets', 'weekday', 'month', 'day', 'year']])
+        print(new_data)
 
         # Abre el modelo y realiza la predicción
         with open('mental_health.pkl', 'rb') as archivo:
             model = pickle.load(archivo)
-            result = model.predict(X_transformed)
-            print("result ---------> ", result[0])
-            resultado = f"{result[0]} - Mensaje ingresado: {post_text}"
+            with open('pipeline.pkl', 'rb') as file:
+                loaded_pipeline, X_test_transformed_loaded, y_test_loaded = pickle.load(file)
+                X_transformed = loaded_pipeline.transform(new_data[['post_text', 'friends', 'favourites', 'statuses', 'retweets', 'weekday', 'month', 'day', 'year']])
+                result = model.predict(X_transformed)
+                print("result ---------> ", result[0])
+                resultado = result[0]
 
     return render_template('main.html', resultado=resultado)
 
