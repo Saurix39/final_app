@@ -1,7 +1,6 @@
 import pickle
 import re
 import pandas as pd
-from datetime import datetime
 import nltk
 from nltk.corpus import stopwords
 from textblob import Word
@@ -81,6 +80,3 @@ def about():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-# if __name__ == '__main__':
-#     app.run(host='0.0.0.0', port=8080, debug=True)
