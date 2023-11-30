@@ -1,78 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="./../static/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <title>Mental Health</title>
-    </head>
-    <body>
-        <header>
-            <h1>Proyecto Final de Análisis de datos</h1>
-        </header>
-        <div class="container">
-            <div class="profile-card">
-                <form id="myForm" action="/" method="post">
-                    <div class="profile-avatar">
-                        <i class="fas fa-user fa-5x"></i>
-                    </div>
-                    <div class="profile-header">
-                        <div class="profile-info">
-                            <div class="profile-username"></div>
-                            <div class="profile-stats">
-                                <div class="stat">
-                                    <label for="seguidores">Seguidores:</label>
-                                    <input type="number" id="friends" name="friends" class="input-stat" required>
-                                </div>
-                                <div class="stat">
-                                    <label for="tweets">Tweets:</label>
-                                    <input type="number" id="statuses" name="statuses" class="input-stat" required>
-                                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Mental Health</title>
+</head>
+
+<body>
+    <header>
+        <h1>Proyecto Final de Análisis de datos</h1>
+    </header>
+    <div class="container">
+        <div class="profile-card">
+            <form id="myForm" action="/" method="post">
+                <div class="profile-avatar">
+                    <i class="fas fa-user fa-5x"></i>
+                </div>
+                <div class="profile-header">
+                    <div class="profile-info">
+                        <div class="profile-username"></div>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <label for="seguidores">Seguidores:</label>
+                                <input type="number" id="friends" name="friends" class="input-stat" required>
+                            </div>
+                            <div class="stat">
+                                <label for="tweets">Tweets:</label>
+                                <input type="number" id="statuses" name="statuses" class="input-stat" required>
                             </div>
                         </div>
                     </div>
-        
-                    <div class="tweet">
-                        <input class="tweet-content" placeholder="Escribe el contenido del tweet aquí" id="post_text" name="post_text"></input>
-        
-                        <div class="tweet-meta">
-                            <div class="meta-left">
-                                <div class="icon-container">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                                <input type="number" id="favourites" name="favourites" class="input-meta" required>
-        
-                                <div class="icon-container">
-                                    <i class="fas fa-retweet"></i>
-                                </div>
-                                <input type="number" id="retweets" name="retweets" class="input-meta" required>
+                </div>
+
+                <div class="tweet">
+                    <input class="tweet-content" placeholder="Escribe el contenido del tweet aquí" id="post_text"
+                        name="post_text"></input>
+
+                    <div class="tweet-meta">
+                        <div class="meta-left">
+                            <div class="icon-container">
+                                <i class="fas fa-heart"></i>
                             </div>
-        
-                            <div class="meta-right">
-                                <input type="text" id="week" name="week" class="input-meta-small" placeholder="Semana" required>
-                                <input type="text" id="year" name="year" class="input-meta-small" placeholder="Año" required>
-                                <input type="text" id="month" name="month" class="input-meta-small" placeholder="Mes" required>
-                                <input type="text" id="day" name="day" class="input-meta-small" placeholder="Día" required>
+                            <input type="number" id="favourites" name="favourites" class="input-meta" required>
+
+                            <div class="icon-container">
+                                <i class="fas fa-retweet"></i>
                             </div>
+                            <input type="number" id="retweets" name="retweets" class="input-meta" required>
                         </div>
-        
+
+                        <div class="meta-right">
+                            <input type="text" id="week" name="week" class="input-meta-small" placeholder="Semana"
+                                required>
+                            <input type="text" id="year" name="year" class="input-meta-small" placeholder="Año"
+                                required>
+                            <input type="text" id="month" name="month" class="input-meta-small" placeholder="Mes"
+                                required>
+                            <input type="text" id="day" name="day" class="input-meta-small" placeholder="Día" required>
+                        </div>
                     </div>
-                    {% if resultado == 0 %}
-                        <div>
-                            No estas deprimido
-                        </div>
-                    {% endif %}
-                    {% if resultado == 1 %}
-                        <div>
-                            Tienes depresión
-                        </div>
-                    {% endif %}
-                    <input type="submit" class="boton" value="Enviar">
-                </form>
-            </div>
+
+                </div>
+                {% if resultado == 0 %}
+                <div class="mensaje no-deprimido">
+                    <span class="emoji">&#128522;</span>
+                    No estás deprimido
+                </div>
+                {% endif %}
+                {% if resultado == 1 %}
+                <div class="mensaje deprimido">
+                    <span class="emoji">&#128546;</span>
+                    Tienes depresión
+                </div>
+                {% endif %}
+
+                <input type="submit" class="boton" value="Enviar">
+            </form>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
